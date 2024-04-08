@@ -1,5 +1,3 @@
-'use strict';
-
 const parser = require('./lib/parser');
 const processingInstructions = require('./lib/processing-instructions');
 const isValidNodeDefinitions = require('./lib/is-valid-node-definitions');
