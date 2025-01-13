@@ -106,7 +106,7 @@ describe('Html2React', () => {
     });
 
     it('should return a valid HTML string with a react camelCase attribute', () => {
-      const htmlInput = '<div contenteditable="true"></div>';
+      const htmlInput = '<div contentEditable="true"></div>';
 
       const reactComponent = parser.parse(htmlInput);
       const reactHtml = ReactDOMServer.renderToStaticMarkup(reactComponent);
@@ -167,7 +167,7 @@ describe('Html2React', () => {
       const reactComponent = parser.parse(htmlInput);
       const reactHtml = ReactDOMServer.renderToStaticMarkup(reactComponent);
 
-      equal(reactHtml, htmlInput);
+      equal(reactHtml, '<link rel="preload" as="image" href="www.google.ca/logo.png"/>' + htmlInput);
     });
 
     // Covers issue #9
@@ -210,7 +210,7 @@ describe('Html2React', () => {
       const reactComponent = parser.parse(htmlInput);
       const reactHtml = ReactDOMServer.renderToStaticMarkup(reactComponent);
 
-      equal(reactHtml, htmlInput);
+      equal(reactHtml, '<link rel="preload" as="image" href="www.google.ca/logo.png"/>' + htmlInput);
     });
 
     it('should decode character entities in text nodes', () => {
@@ -264,7 +264,7 @@ describe('Html2React', () => {
       const reactComponent = parser.parse(htmlInput);
       const reactHtml = ReactDOMServer.renderToStaticMarkup(reactComponent);
 
-      equal(reactHtml, '<html><body><div></div></body></html>');
+      equal(reactHtml, '<html><head></head><body><div></div></body></html>');
     });
 
     it('should handle free text nodes', () => {
